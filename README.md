@@ -2,6 +2,31 @@
 
 - Python 3.9
 
+## Easy usage
+
+```shell
+mkdir -p ./config ./data
+
+touch .env
+echo "CONSUMER_KEY=..." >> .env
+echo "CONSUMER_SECRET=..." >> .env
+
+docker run --rm --env-file=$(pwd)/.env -v=$(pwd)/config:/config -v=$(pwd)/data:/data aoirint/twisearchnotify:latest gosu user python3 authenticate.py
+
+echo "OAUTH_TOKEN=..." >> .env
+echo "OAUTH_SECRET=..." >> .env
+
+echo <<EOF > config/nhk_penguin.yml
+query: 'from:nhk_news ペンギン'
+inpage_count: 10
+discord_webhook_url: https://discord.com/api/webhooks/...
+EOF
+
+docker run --rm --env-file=$(pwd)/.env -v=$(pwd)/config:/config -v=$(pwd)/data:/data aoirint/twisearchnotify:latest
+```
+
+For scheduled run, use external tools like cron.
+
 ## build docker image
 
 ```shell
