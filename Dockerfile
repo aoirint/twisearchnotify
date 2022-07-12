@@ -1,5 +1,8 @@
 FROM python:3.9
 
+ENV DATA_ROOT=/data
+ENV CONFIG_ROOT=/config
+
 RUN apt-get update && \
     apt-get install -y \
         gosu && \
