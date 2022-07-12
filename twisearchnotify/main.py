@@ -68,11 +68,10 @@ for config_path in config_paths:
 
     tweet_url = f'https://twitter.com/{screen_name}/status/{tweet_id}'
 
+    data.last_tweet_id = int(tweet_id)
+
     requests.post(config.discord_webhook_url, json={
       'content': f'{tweet_url}',
     })
 
-  last_tweet = next(iter(sorted(tweets, key=lambda tweet: int(tweet['id']), reverse=True)), None)
-  data.last_tweet_id = int(last_tweet['id']) if last_tweet is not None else None
-
-  data_path.write_text(data.json(ensure_ascii=False), encoding='utf-8')
+    data_path.write_text(data.json(ensure_ascii=False), encoding='utf-8')
