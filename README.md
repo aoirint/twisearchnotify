@@ -28,6 +28,16 @@ Open printed URL in your browser and authorize your app.
 
 Paste outputs (OAUTH_TOKEN, OAUTH_SECRET) to your .env.
 
+## create ./config/nhk_penguin.yml
+
+```yaml
+query: 'from:nhk_news ペンギン'
+inpage_count: 10
+discord_webhook_url: https://discord.com/api/webhooks/...
+```
+
+## create ./data dir
+
 ## run crawl
 
 ```shell
