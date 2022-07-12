@@ -11,7 +11,7 @@ touch .env
 echo "CONSUMER_KEY=..." >> .env
 echo "CONSUMER_SECRET=..." >> .env
 
-docker run --rm --env-file=$(pwd)/.env -v=$(pwd)/config:/config -v=$(pwd)/data:/data aoirint/twisearchnotify:latest gosu user python3 authenticate.py
+docker run --rm -it --env-file=$(pwd)/.env -v=$(pwd)/config:/config -v=$(pwd)/data:/data aoirint/twisearchnotify:latest gosu user python3 authenticate.py
 
 echo "OAUTH_TOKEN=..." >> .env
 echo "OAUTH_SECRET=..." >> .env
