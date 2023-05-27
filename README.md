@@ -1,5 +1,9 @@
 # twisearchnotify
 
+**(2023-05-27) This repository is no longer maintained due to the Twitter API pricing changes in April 2023.**
+
+---
+
 - Python 3.9
 
 ## Easy usage
